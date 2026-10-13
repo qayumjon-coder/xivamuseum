@@ -6,15 +6,36 @@
   --color-accent: #e29e38;
   --color-bg: #262323;
   --color-text-wt: #ffffff;
+  --color-text-tp: #ffffff90;
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1320px;
   width: 100%;
   margin: 20px auto;
-  padding: auto 20px;
+  padding: 0 20px;
 }
 
 * {
   font-family: "Montserrat", sans-serif;
+}
+
+.admin-container {
+  max-width: 1320px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Swiper */
+
+.swiper-pagination-bullet{
+  width: 11px !important;
+  height: 11px !important;
+  background-color: transparent !important;
+  border: 1px solid var(--color-text-tp) !important;
+}
+
+.swiper-pagination-bullet-active{
+  background-color: var(--color-accent) !important;
 }

@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { GoPerson } from "react-icons/go";
+import { IoTicketOutline } from "react-icons/io5";
+import { RiPhoneLine } from "react-icons/ri";
+import { RxPerson } from "react-icons/rx";
 import { Link, NavLink } from "react-router";
 
 const Header = () => {
@@ -7,10 +11,10 @@ const Header = () => {
   const [yangOpen, setYangOpen] = useState(false);
 
   return (
-    <header className="w-full font-sans pt-px ">
+    <header className="w-full font-sans pt-px shadow-xl shadow-black/30">
       <div className="border-b border-accent/55 bg-primary">
-        <div className="container mb-0! mt-0! px-5 py-2">
-          <div className=" flex justify-between">
+        <div className="container mb-0! mt-0! px-5 ">
+          <div className=" flex justify-between py-2">
             {/* Left: Logo + links */}
             <div className="flex items-center gap-5">
               {/* Logo - arch shaped with city silhouette */}
@@ -95,15 +99,9 @@ const Header = () => {
               {/* Phone */}
               <a
                 href="tel:+998556046343"
-                className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors text-sm font-medium"
+                className="flex items-center gap-1.5 text-text-wt white hover:text-white transition-colors font-medium"
               >
-                <svg
-                  className="w-3.5 h-3.5 text-accent"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                </svg>
+                <RiPhoneLine size={20} />
                 +998556046343
               </a>
 
@@ -113,7 +111,7 @@ const Header = () => {
               <div className="relative">
                 <button
                   onClick={() => setLangOpen(!langOpen)}
-                  className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm font-medium"
+                  className="flex items-center gap-2 text-text-wt cursor-pointer transition-colors font-medium"
                 >
                   <span>O'zbek</span>
                   <svg
@@ -149,20 +147,25 @@ const Header = () => {
       </div>
 
       <div className="bg-primary">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           {/* Nav links */}
-          <nav className="flex items-center gap-1">
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `px-4 py-2 text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${
-                  isActive ? "text-accent" : "text-white/85 hover:text-white"
-                }`
-              }
-            >
-              Bosh sahifa
-            </NavLink>
+          <nav className="flex items-center gap-5">
+            <div className="relative">
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  `px-4 py-2 block text-sm font-bold uppercase transition-colors rounded-sm text-text-wt hover:text-white/85"}`
+                }
+              >
+                {({ isActive }) => (
+                  <span className="flex flex-col items-center gap-1">
+                    <span>Bosh sahifa</span>
+                    {isActive && <span className="inline-block w-full h-0.5 bg-accent/60"></span>}
+                  </span>
+                )}
+              </NavLink>
+            </div>
 
             {/* Biz haqimizda dropdown */}
             <div className="relative">
@@ -171,7 +174,7 @@ const Header = () => {
                   setBizOpen(!bizOpen);
                   setYangOpen(false);
                 }}
-                className="flex items-center gap-1 px-4 py-2 text-sm font-bold tracking-wider uppercase text-white/85 hover:text-white transition-colors"
+                className="flex items-center gap-1 px-4 py-7 text-sm font-bold tracking-wider uppercase text-text-wt hover:text-white transition-colors"
               >
                 Biz haqimizda
                 <svg
@@ -206,8 +209,7 @@ const Header = () => {
             <NavLink
               to="/kolleksiya"
               className={({ isActive }) =>
-                `px-4 py-2 text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${
-                  isActive ? "text-[#E29E38]" : "text-white/85 hover:text-white"
+                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${isActive ? "text-accent" : "text-text-wt hover:text-white/85"
                 }`
               }
             >
@@ -217,8 +219,7 @@ const Header = () => {
             <NavLink
               to="/galereya"
               className={({ isActive }) =>
-                `px-4 py-2 text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${
-                  isActive ? "text-[#E29E38]" : "text-white/85 hover:text-white"
+                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${isActive ? "text-accent" : "text-text-wt hover:text-white/85"
                 }`
               }
             >
@@ -232,7 +233,7 @@ const Header = () => {
                   setYangOpen(!yangOpen);
                   setBizOpen(false);
                 }}
-                className="flex items-center gap-1 px-4 py-2 text-sm font-bold tracking-wider uppercase text-white/85 hover:text-white transition-colors"
+                className="flex items-center gap-1 px-4 py-7 text-sm font-bold tracking-wider uppercase text-text-wt hover:text-white transition-colors"
               >
                 Yangiliklar
                 <svg
@@ -264,8 +265,7 @@ const Header = () => {
             <NavLink
               to="/aloqa"
               className={({ isActive }) =>
-                `px-4 py-2 text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${
-                  isActive ? "text-[#E29E38]" : "text-white/85 hover:text-white"
+                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${isActive ? "text-accent" : "text-text-wt hover:text-white/85"
                 }`
               }
             >
@@ -274,26 +274,18 @@ const Header = () => {
           </nav>
 
           {/* Right: Chipta olish + User */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-px">
             <Link
               to="/chipta"
-              className="flex items-center gap-2 px-5 py-[9px] bg-[#E29E38] hover:bg-[#d08e28] text-white text-[13px] font-semibold rounded-[6px] transition-all duration-200 tracking-wide"
+              className="flex items-center gap-2 px-5 py-3 bg-accent hover:bg-[#d08e28] text-white text-sm font-semibold rounded-l-md transition-all duration-200 tracking-wide"
             >
               <span>Chipta olish</span>
               {/* Ticket/Tag icon */}
-              <svg
-                className="w-[15px] h-[15px] opacity-90"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" />
-              </svg>
+              <IoTicketOutline size={20} />
             </Link>
 
-            <button className="w-9 h-9 flex items-center justify-center rounded-[6px] bg-[#2e2e2e] border border-white/10 text-white/70 hover:text-white hover:bg-[#3a3a3a] transition-all duration-200">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-              </svg>
+            <button className="w-11 py-3 flex items-center justify-center rounded-r-md hover:bg-[#d08e28] cursor-pointer bg-accent text-text-wt hover:text-white transition-all duration-200">
+              <RxPerson size={20} strokeWidth={0.25} />
             </button>
           </div>
         </div>
