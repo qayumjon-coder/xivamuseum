@@ -9,8 +9,7 @@ const links = [
   { id: "settings", name: "Settings", icon: <IoMdSettings size={20} /> },
 ];
 
-const Sidebar = () => {
-  const [active, setActive] = useState("dashboard");
+const Sidebar = ({ active, setActive }) => {
   const [bg, setBg] = useState({
     left: 0,
     top: 0,
@@ -23,7 +22,6 @@ const Sidebar = () => {
   const btnRefs = useRef({});
   const iconRefs = useRef({});
 
-  // Elementni wrapper'ga nisbatan o'lchaydi
   const measure = (el, radius) => {
     if (!el || !wrapRef.current) return;
     const p = wrapRef.current.getBoundingClientRect();
@@ -57,7 +55,6 @@ const Sidebar = () => {
       </div>
 
       <div className="flex flex-col gap-2.5 mt-10 mx-5">
-        {/* relative wrapper: fon shu ichida joylashadi */}
         <div ref={wrapRef} className="relative">
           <div
             aria-hidden="true"
@@ -79,7 +76,7 @@ const Sidebar = () => {
                   onClick={() => setActive(link.id)}
                   onMouseEnter={() => showButton(link.id)}
                   onMouseLeave={() => showIcon(active)}
-                  className="relative z-10 flex w-full items-center gap-5 p-2 cursor-pointer"
+                  className="relative z-10 flex w-full items-center gap-5 mb-1 px-2 cursor-pointer"
                 >
                   <span
                     ref={(el) => (iconRefs.current[link.id] = el)}
