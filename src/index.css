@@ -1,12 +1,108 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
-@theme {
+/* @theme {
   --color-primary: #1a1a1a;
-  --color-accent: #e29e38;
+  --color-accent: #005eff;
+  --color-accent-dark: #000f29;
   --color-bg: #262323;
   --color-text-wt: #ffffff;
   --color-text-tp: #ffffff90;
+}
+
+bfbf{
+  color: #000f29;
+} */
+
+/* .dark klassi bilan ishlaydigan dark variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- LIGHT (Grafit va Kobalt Ko'k) ---------- */
+:root {
+  --bg: #f6f7f9;             /* Sovuq galereya oqi */
+  --surface: #ffffff;
+  --surface-2: #ebedf2;
+  --line: #d8dce6;
+
+  --ink: #111318;
+  --ink-muted: #585d6b;
+
+  --brand: #1e222d;          /* Chuqur antratsit / Grafit (~14:1) */
+  --brand-hover: #0d0f14;
+  --brand-soft: #434a5e;
+  --brand-tint: #e8eaf0;
+  --on-brand: #ffffff;
+
+  --accent: #1d4ed8;         /* Ultramarin / Kobalt ko'k (~6.7:1) */
+  --accent-hover: #163ba8;
+
+  --side: #0d0f14;
+  --side-card: #161922;
+  --side-hover: #222736;
+  --side-ink: #eef0f6;
+  --side-ink-muted: #9399ad;
+}
+
+/* ---------- DARK (Grafit va Kobalt Ko'k) ---------- */
+.dark {
+  --bg: #0b0c10;
+  --surface: #13151c;
+  --surface-2: #1c1f2b;
+  --line: #2c3142;
+
+  --ink: #eef0f6;
+  --ink-muted: #989fb5;
+
+  --brand: #e2e6f0;          /* Kumush-oq */
+  --brand-hover: #ffffff;
+  --brand-soft: #5e6680;
+  --brand-tint: #232736;
+  --on-brand: #0d0f14;
+
+  --accent: #60a5fa;         /* Yorqin osmon-kobalt */
+  --accent-hover: #93c5fd;
+
+  --side: #07080a;
+  --side-card: #101218;
+  --side-hover: #1b1e29;
+  --side-ink: #eef0f6;
+  --side-ink-muted: #9399ad;
+}
+
+/* ---------- Tailwind'ga ulash ---------- */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-tint: var(--brand-tint);
+  --color-on-brand: var(--on-brand);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+
+  --color-side: var(--side);
+  --color-side-card: var(--side-card);
+  --color-side-hover: var(--side-hover);
+  --color-side-ink: var(--side-ink);
+  --color-side-ink-muted: var(--side-ink-muted);
+}
+
+/* Rejimga bog'liq bo'lmagan rang (hero overlay, footer) */
+@theme {
+  --color-deep: #0b1a2b;
+  --color-deep-ink: #e6edf5;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
 }
 
 .container {

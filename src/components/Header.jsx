@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="w-full font-sans pt-px shadow-xl shadow-black/30">
-      <div className="border-b border-accent/55 bg-primary">
+      <div className="border-b border-line bg-bg">
         <div className="container mb-0! mt-0! px-5 ">
           <div className=" flex justify-between py-2">
             {/* Left: Logo + links */}
@@ -29,14 +29,14 @@ const Header = () => {
               </Link>
 
               {/* Khiva 360° - VR headset icon */}
-              <button className="flex items-center gap-1.5 text-text-wt hover:text-white transition-colors text-sm font-medium">
-                <span className="text-text-wt">
+              <button className="flex items-center gap-1.5 text-ink hover:text-ink-muted transition-colors text-sm font-medium">
+                <span className="text-ink">
                   {/* VR Headset icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
                     height="16"
-                    class="fill-white"
+                    className="fill-[#1c2733] hover:text-ink-muted"
                     viewBox="0 0 62 40"
                   >
                     <path d="M53.4 5.5h-44c-2.1 0-3.7 1.7-3.7 3.7v22.6c0 2.1 1.7 3.7 3.7 3.7h13.4c1.1 0 2.1-.6 2.5-1.6l3-7.5c1.2-2.6 4.9-2.5 6 .1l2.6 7.3c.4 1 1.4 1.7 2.5 1.7h13.9c2.1 0 3.7-1.7 3.7-3.7V9.3c.2-2.1-1.5-3.8-3.6-3.8zM20.4 27c-3.2 0-5.7-2.6-5.7-5.7s2.6-5.7 5.7-5.7 5.7 2.6 5.7 5.7-2.5 5.7-5.7 5.7zm22 0c-3.2 0-5.7-2.6-5.7-5.7s2.6-5.7 5.7-5.7 5.7 2.6 5.7 5.7-2.5 5.7-5.7 5.7z"></path>
@@ -46,7 +46,7 @@ const Header = () => {
               </button>
 
               {/* Khiva Museum Shop */}
-              <button className="text-text-wt hover:text-white transition-colors text-sm font-medium">
+              <button className="transition-colors text-sm font-medium">
                 Khiva Museum Shop
               </button>
             </div>
@@ -58,7 +58,7 @@ const Header = () => {
                 {/* YouTube */}
                 <a
                   href="#"
-                  className="text-text-wt hover:text-accent transition-colors"
+                  className="text-ink hover:text-accent transition-colors"
                 >
                   <svg
                     className="w-4 h-4"
@@ -71,7 +71,7 @@ const Header = () => {
                 {/* Instagram */}
                 <a
                   href="#"
-                  className="text-text-wt hover:text-accent transition-colors"
+                  className="text-ink hover:text-accent transition-colors"
                 >
                   <svg
                     className="w-3.25 h-3.25"
