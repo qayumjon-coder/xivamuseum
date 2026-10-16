@@ -9,6 +9,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<Landing />} />
+      {/* Admin panel */}
       <Route path="admin" element={<AdminLayout />}>
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<DashboardPage />} />

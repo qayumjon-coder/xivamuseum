@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="w-full font-sans pt-px shadow-xl shadow-black/30">
-      <div className="border-b border-line bg-bg">
+      <div className="border-b border-line bg-surface">
         <div className="container mb-0! mt-0! px-5 ">
           <div className=" flex justify-between py-2">
             {/* Left: Logo + links */}
@@ -161,7 +161,9 @@ const Header = () => {
                 {({ isActive }) => (
                   <span className="flex flex-col items-center gap-1">
                     <span>Bosh sahifa</span>
-                    {isActive && <span className="inline-block w-full h-0.5 bg-accent/60"></span>}
+                    {isActive && (
+                      <span className="inline-block w-full h-0.5 bg-accent/60"></span>
+                    )}
                   </span>
                 )}
               </NavLink>
@@ -209,7 +211,8 @@ const Header = () => {
             <NavLink
               to="/kolleksiya"
               className={({ isActive }) =>
-                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${isActive ? "text-accent" : "text-text-wt hover:text-white/85"
+                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${
+                  isActive ? "text-accent" : "text-text-wt hover:text-white/85"
                 }`
               }
             >
@@ -219,7 +222,8 @@ const Header = () => {
             <NavLink
               to="/galereya"
               className={({ isActive }) =>
-                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${isActive ? "text-accent" : "text-text-wt hover:text-white/85"
+                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${
+                  isActive ? "text-accent" : "text-text-wt hover:text-white/85"
                 }`
               }
             >
@@ -265,7 +269,8 @@ const Header = () => {
             <NavLink
               to="/aloqa"
               className={({ isActive }) =>
-                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${isActive ? "text-accent" : "text-text-wt hover:text-white/85"
+                `px-4 py-7 block text-sm font-bold tracking-wider uppercase transition-colors rounded-sm ${
+                  isActive ? "text-accent" : "text-text-wt hover:text-white/85"
                 }`
               }
             >
@@ -277,14 +282,14 @@ const Header = () => {
           <div className="flex items-center gap-px">
             <Link
               to="/chipta"
-              className="flex items-center gap-2 px-5 py-3 bg-accent hover:bg-[#d08e28] text-white text-sm font-semibold rounded-l-md transition-all duration-200 tracking-wide"
+              className="flex items-center gap-2 px-5 py-3 bg-accent hover:bg-accent-hover text-white text-sm font-semibold rounded-l-md transition-all duration-200 tracking-wide"
             >
               <span>Chipta olish</span>
               {/* Ticket/Tag icon */}
               <IoTicketOutline size={20} />
             </Link>
 
-            <button className="w-11 py-3 flex items-center justify-center rounded-r-md hover:bg-[#d08e28] cursor-pointer bg-accent text-text-wt hover:text-white transition-all duration-200">
+            <button className="w-11 py-3 flex items-center justify-center rounded-r-md hover:bg-accent-hover cursor-pointer bg-accent text-side-ink hover:text-white transition-all duration-200">
               <RxPerson size={20} strokeWidth={0.25} />
             </button>
           </div>
