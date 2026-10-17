@@ -50,7 +50,7 @@ const sections = [
     ],
   },
   {
-    title: "User config",
+    title: "User",
     items: [
       {
         id: "users",
@@ -66,7 +66,7 @@ const sections = [
       },
       {
         id: "admins",
-        path: "/admin/guards",
+        path: "/admin/admins",
         name: "Admins",
         icon: <i className="fa-solid fa-user-shield text-xl"></i>,
       },
@@ -92,14 +92,17 @@ const Sidebar = ({ minimize, setMinimize }) => {
     top: 0,
     width: 0,
     height: 0,
-    radius: 600,
+    radius: 6,
+    color: "var(--accent)"
   });
+
+  const [tip, setTip] = useState(null)
 
   const wrapRef = useRef(null);
   const btnRefs = useRef({});
   const iconRefs = useRef({});
 
-  const measure = (el, radius) => {
+  const measure = (el, radius, color) => {
     if (!el || !wrapRef.current) return;
     const p = wrapRef.current.getBoundingClientRect();
     const r = el.getBoundingClientRect();
@@ -108,12 +111,19 @@ const Sidebar = ({ minimize, setMinimize }) => {
       top: r.top - p.top,
       width: r.width,
       height: r.height,
-      radius: radius,
+      radius,
+      color
     });
   };
 
-  const showButton = (id) => measure(btnRefs.current[id], 12);
-  const showIcon = (id) => measure(iconRefs.current[id], 6);
+  const showTip = (e, name) => {
+    if (!minimize) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    setTip({ name, top: r.top + r.height / 2, left: r.right + 8 });
+  };
+
+  const showButton = (id) => measure(btnRefs.current[id], 12, "var(--side-hover)");
+  const showIcon = (id) => measure(iconRefs.current[id], 6, "var(--accent)");
 
   useLayoutEffect(() => {
     showIcon(active);
@@ -128,10 +138,28 @@ const Sidebar = ({ minimize, setMinimize }) => {
 
   return (
     <div
-      className={`${minimize ? "w-2/40" : ""} 2/10 h-full p-[0.1px] z-10 transition-all ease duration-500`}
+      className={`${minimize ? "lg:w-4/40 xl:w-3/40 2xl:w-2/40" : ""} w-2/11 h-screen p-3 z-10 transition-all ease-in-out duration-500`}
     >
+      <div className={`${minimize ? "justify-center" : ""} flex w-full justify-between items-center transition-all`}>
+        <h2 className={`${minimize ? "w-0 overflow-x-hidden" : "w-100"}  opacity-100 z-1 text-side-ink-muted font-medium transition-all text-2xl! md:text-lg 2xl:text-[28px]`}>
+          Admin Dashboard
+        </h2>
+        <button
+          onClick={handleMinimize}
+          className="relative cursor-pointer p-2 rounded-xl hover:bg-side-hover text-side-ink-muted transition-all"
+        >
+          <LuPanelLeftClose
+            size={35}
+            className={`${minimize ? "opacity-0" : "opacity-100"} transition-all`}
+          />
+          <LuPanelLeftOpen
+            size={35}
+            className={`absolute top-2 left-2 ${minimize ? "opacity-100" : "opacity-0"} transition-all`}
+          />
+        </button>
+      </div>
       <div
-        className={`${minimize ? "mx-1 mt-5 rounded-md" : "mx-5 mt-5 rounded-2xl"} flex items-center bg-side-card h-50 bg-[url(/istockphoto-1213935830-612x612.jpg)] bg-top gap-5`}
+        className={`${minimize ? "rounded-2xl" : "rounded-2xl"} mt-2 flex items-center bg-side-card h-50 bg-[url(/istockphoto-1213935830-612x612.jpg)] bg-top gap-5`}
       >
         <div
           className={`${minimize ? "rounded-b-md" : "rounded-xl"} relative flex flex-col justify-between items-start overflow-hidden group hover:pt-3 hover:pl-3 hover:pr-3 pr-2 pt-2 pl-2 pb-2 w-full h-full transition-all`}
@@ -140,38 +168,20 @@ const Sidebar = ({ minimize, setMinimize }) => {
           <div
             className={`z-1 flex justify-between w-full items-start ${minimize ? "flex-col" : ""}`}
           >
-            <a
-              className={`${minimize ? "" : ""} rounded-xl bg-white shadow-[0_0_5px_rgba(0,0,0,0.4)] w-20 p-1 mb-2 block`}
-            >
-              <img className="w-full" src="/logo.png" alt="Logo" />
-            </a>
+
 
             <div>
-              <button
-                onClick={handleMinimize}
-                className="relative cursor-pointer p-0.75 rounded-xl bg-bg text-ink"
-              >
-                <LuPanelLeftClose
-                  size={25}
-                  className={`${minimize ? "opacity-0" : "opacity-100"} transition-all`}
-                />
-                <LuPanelLeftOpen
-                  size={25}
-                  className={`absolute top-0.75 left-0.75 ${minimize ? "opacity-100" : "opacity-0"} transition-all`}
-                />
-              </button>
+
             </div>
           </div>
-          <h2 className="opacity-0 z-1 -mb-5 group-hover:opacity-100 group-hover:mb-0 text-side-ink font-medium transition-all text-base md:text-lg 2xl:text-[28px]">
-            Admin Dashboard
-          </h2>
+
         </div>
       </div>
 
-      <div className="flex flex-col justify-between h-full gap-2.5 mt-5 mx-5">
+      <div className={`${!minimize ? "" : ""} flex flex-col gap-2`}>
         <div
           ref={wrapRef}
-          className="relative flex flex-col justify-between h-full"
+          className="relative flex flex-col"
         >
           <div
             aria-hidden="true"
@@ -192,15 +202,15 @@ const Sidebar = ({ minimize, setMinimize }) => {
                   {section.title}
                 </h3>
 
-                <div className="flex flex-col gap-0.5">
+                <div className="flex flex-col">
                   {section.items.map((link) => (
                     <NavLink
                       key={link.id}
                       to={link.path}
                       ref={(el) => (btnRefs.current[link.id] = el)}
-                      onMouseEnter={() => showButton(link.id)}
-                      onMouseLeave={() => showIcon(active)}
-                      className="relative z-10 flex w-full items-center gap-3 p-1 text-side-ink"
+                      onMouseEnter={(e) => { showButton(link.id); showTip(e, link.name); }}
+                      onMouseLeave={() => { showIcon(active); setTip(null); }}
+                      className={`${minimize ? "w-min" : ""} relative z-10 flex group w-full gap-3 items-center p-1 text-side-ink`}
                     >
                       <span
                         ref={(el) => (iconRefs.current[link.id] = el)}
@@ -208,7 +218,7 @@ const Sidebar = ({ minimize, setMinimize }) => {
                       >
                         {link.icon}
                       </span>
-                      <span>{link.name}</span>
+                      {!minimize && <span>{link.name}</span>}
                     </NavLink>
                   ))}
                 </div>
@@ -217,6 +227,14 @@ const Sidebar = ({ minimize, setMinimize }) => {
           </ul>
         </div>
       </div>
+      {tip && (
+        <div
+          style={{ top: tip.top, left: tip.left }}
+          className="fixed z-50 -translate-y-1/2 rounded-md bg-side-hover p-1 px-2 text-side-ink shadow-lg shadow-black/20 pointer-events-none"
+        >
+          {tip.name}
+        </div>
+      )}
     </div>
   );
 };
