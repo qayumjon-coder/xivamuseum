@@ -1,7 +1,7 @@
 
 const Header = () => {
     return (
-        <header className="w-full bg-side rounded-xl">
+        <header className="w-full bg-side rounded-xl flex just">
             <div className="flex p-2 items-end">
                 <img className="w-18" src="/logo.png" alt="Logo" />
                 <div className="text-side-ink relative ">
@@ -9,7 +9,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <div>
+            <div className="text-side-ink">
                 <h2>Ism Familyayev</h2>
 
                 <div>
