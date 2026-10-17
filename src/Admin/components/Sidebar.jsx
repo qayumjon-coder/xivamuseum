@@ -168,11 +168,6 @@ const Sidebar = ({ minimize, setMinimize }) => {
           <div
             className={`z-1 flex justify-between w-full items-start ${minimize ? "flex-col" : ""}`}
           >
-
-
-            <div>
-
-            </div>
           </div>
 
         </div>
