@@ -1,119 +1,161 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
-/* @theme {
-  --color-primary: #1a1a1a;
-  --color-accent: #005eff;
-  --color-accent-dark: #000f29;
-  --color-bg: #262323;
-  --color-text-wt: #ffffff;
-  --color-text-tp: #ffffff90;
-}
-
-bfbf{
-  color: #000f29;
-} */
+/* =============================================
+   MAVZU O'ZGARUVCHILARI (THEME TOKENS)
+   ============================================= */
 
 /* .dark klassi bilan ishlaydigan dark variant */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---------- LIGHT (Grafit va Kobalt Ko'k) ---------- */
+/* ---------- LIGHT MAVZU (default) ---------- */
 :root {
-  --bg: #f6f7f9;             /* Sovuq galereya oqi */
-  --surface: #ffffff;
-  --surface-2: #ebedf2;
-  --line: #d8dce6;
+  /* Asosiy fon */
+  --bg:          #f2f0ec;        /* Issiq krем / qum rangi */
+  --surface:     #ffffff;        /* Kartalar, modal */
+  --surface-2:   #e8e4dc;        /* Ikkinchi darajali yuzalar */
+  --line:        #d4cec4;        /* Ajratuvchi chiziqlar */
 
-  --ink: #111318;
-  --ink-muted: #585d6b;
+  /* Matn */
+  --ink:         #1c1a17;        /* Asosiy matn – deyarli qora */
+  --ink-muted:   #6b6456;        /* Ikkinchi darajali matn */
+  --ink-faint:   #a89f92;        /* Placeholder, yordam matni */
 
-  --brand: #1e222d;          /* Chuqur antratsit / Grafit (~14:1) */
-  --brand-hover: #0d0f14;
-  --brand-soft: #434a5e;
-  --brand-tint: #e8eaf0;
-  --on-brand: #ffffff;
+  /* Brand (sarlavha paneli, nav foni) */
+  --brand:       #1e1b14;        /* Chuqur qahraton – nav foni */
+  --brand-hover: #2e2a1f;        /* Hover holati */
+  --brand-soft:  #3d3829;        /* Softened brand */
+  --on-brand:    #f5f0e8;        /* Brand ustidagi matn */
 
-  --accent: #1d4ed8;         /* Ultramarin / Kobalt ko'k (~6.7:1) */
-  --accent-hover: #163ba8;
+  /* Aksent – oltin/sariq (muzeyning asosiy rangi) */
+  --accent:        #c88b19;      /* Oltin sariq */
+  --accent-hover:  #a87214;      /* Hover oltin */
+  --accent-light:  #fdf3de;      /* Juda och oltin, tint */
+  --on-accent:     #1c1a17;      /* Aksent ustidagi matn */
 
-  --side: #0d0f14;
-  --side-card: #161922;
-  --side-hover: #222736;
-  --side-ink: #eef0f6;
-  --side-ink-muted: #9399ad;
+  /* Header ikkinchi satri foni */
+  --topbar-bg:   #ffffff;
+  --topbar-line: #e0dbd3;
+
+  /* Statistika kartalar */
+  --card-bg:     #ffffff;
+  --card-border: #e8e4dc;
+  --card-hover:  #fdf6ee;
+
+  /* Footer */
+  --footer-bg:   #1e1b14;
+  --footer-surface: #2a2620;
+  --footer-ink:  #f0ebe0;
+  --footer-ink-muted: #a89f8a;
+  --footer-line: #3a352a;
+
+  /* Divider */
+  --divider: #d4cec4;
+
+  /* Overlay (slider ustida) */
+  --overlay: rgba(0, 0, 0, 0.45);
 }
 
-/* ---------- DARK (Grafit va Kobalt Ko'k) ---------- */
+/* ---------- DARK MAVZU ---------- */
 .dark {
-  --bg: #0b0c10;
-  --surface: #13151c;
-  --surface-2: #1c1f2b;
-  --line: #2c3142;
+  --bg:          #0f0e0b;
+  --surface:     #1a1815;
+  --surface-2:   #252219;
+  --line:        #332e24;
 
-  --ink: #eef0f6;
-  --ink-muted: #989fb5;
+  --ink:         #f0ebe0;
+  --ink-muted:   #a89f8a;
+  --ink-faint:   #6b6456;
 
-  --brand: #e2e6f0;          /* Kumush-oq */
-  --brand-hover: #ffffff;
-  --brand-soft: #5e6680;
-  --brand-tint: #232736;
-  --on-brand: #0d0f14;
+  --brand:       #1a1714;
+  --brand-hover: #252219;
+  --brand-soft:  #3d3829;
+  --on-brand:    #f0ebe0;
 
-  --accent: #60a5fa;         /* Yorqin osmon-kobalt */
-  --accent-hover: #93c5fd;
+  --accent:        #e8a422;
+  --accent-hover:  #c88b19;
+  --accent-light:  #2e2510;
+  --on-accent:     #1c1a17;
 
-  --side: #07080a;
-  --side-card: #101218;
-  --side-hover: #1b1e29;
-  --side-ink: #eef0f6;
-  --side-ink-muted: #9399ad;
+  --topbar-bg:   #141210;
+  --topbar-line: #2a2620;
+
+  --card-bg:     #1a1815;
+  --card-border: #2e2a1e;
+  --card-hover:  #252219;
+
+  --footer-bg:   #0a0908;
+  --footer-surface: #141210;
+  --footer-ink:  #f0ebe0;
+  --footer-ink-muted: #8a8070;
+  --footer-line: #252219;
+
+  --divider: #2e2a1e;
+
+  --overlay: rgba(0, 0, 0, 0.55);
 }
 
 /* ---------- Tailwind'ga ulash ---------- */
 @theme inline {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-line: var(--line);
-  --color-ink: var(--ink);
-  --color-ink-muted: var(--ink-muted);
+  --color-bg:          var(--bg);
+  --color-surface:     var(--surface);
+  --color-surface-2:   var(--surface-2);
+  --color-line:        var(--line);
 
-  --color-brand: var(--brand);
+  --color-ink:         var(--ink);
+  --color-ink-muted:   var(--ink-muted);
+  --color-ink-faint:   var(--ink-faint);
+
+  --color-brand:       var(--brand);
   --color-brand-hover: var(--brand-hover);
-  --color-brand-soft: var(--brand-soft);
-  --color-brand-tint: var(--brand-tint);
-  --color-on-brand: var(--on-brand);
+  --color-brand-soft:  var(--brand-soft);
+  --color-on-brand:    var(--on-brand);
 
-  --color-accent: var(--accent);
+  --color-accent:       var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-on-accent:    var(--on-accent);
 
-  --color-side: var(--side);
-  --color-side-card: var(--side-card);
-  --color-side-hover: var(--side-hover);
-  --color-side-ink: var(--side-ink);
-  --color-side-ink-muted: var(--side-ink-muted);
+  --color-topbar-bg:   var(--topbar-bg);
+  --color-topbar-line: var(--topbar-line);
+
+  --color-card-bg:     var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-card-hover:  var(--card-hover);
+
+  --color-footer-bg:          var(--footer-bg);
+  --color-footer-surface:     var(--footer-surface);
+  --color-footer-ink:         var(--footer-ink);
+  --color-footer-ink-muted:   var(--footer-ink-muted);
+  --color-footer-line:        var(--footer-line);
+
+  --color-divider: var(--divider);
 }
 
-/* Rejimga bog'liq bo'lmagan rang (hero overlay, footer) */
-@theme {
-  --color-deep: #0b1a2b;
-  --color-deep-ink: #e6edf5;
+/* =============================================
+   GLOBAL USLUBLAR
+   ============================================= */
+
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
   background-color: var(--bg);
   color: var(--ink);
+  min-height: 100vh;
 }
+
+/* =============================================
+   LAYOUT
+   ============================================= */
 
 .container {
   max-width: 1320px;
   width: 100%;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-
-* {
-  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .admin-container {
@@ -123,15 +165,113 @@ body {
   padding: 0 20px;
 }
 
-/* Swiper */
+/* =============================================
+   SWIPER USLUBLARI
+   ============================================= */
 
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   width: 11px !important;
   height: 11px !important;
   background-color: transparent !important;
-  border: 1px solid var(--color-text-tp) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
 }
 
-.swiper-pagination-bullet-active{
-  background-color: var(--color-accent) !important;
+.swiper-pagination-bullet-active {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* =============================================
+   UMUMIY KOMPONENT USLUBLARI
+   ============================================= */
+
+/* Breadcrumb */
+.breadcrumb-box {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px dashed var(--accent);
+  border-radius: 6px;
+  padding: 12px 20px;
+  margin-bottom: 32px;
+}
+
+.breadcrumb-box h1 {
+  color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.breadcrumb-box nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}
+
+.breadcrumb-box nav a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb-box nav a:hover {
+  color: var(--accent);
+}
+
+/* Btn – primary (oltin) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background-color: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Btn – outline */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  background-color: transparent;
+  color: var(--accent);
+  border: 1px dashed var(--accent);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: var(--accent-light);
+}
+
+/* Section padding */
+.section-py {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 1px solid var(--divider);
 }
