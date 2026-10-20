@@ -93,10 +93,10 @@ const Sidebar = ({ minimize, setMinimize }) => {
     width: 0,
     height: 0,
     radius: 6,
-    color: "var(--accent)"
+    color: "var(--accent)",
   });
 
-  const [tip, setTip] = useState(null)
+  const [tip, setTip] = useState(null);
 
   const wrapRef = useRef(null);
   const btnRefs = useRef({});
@@ -112,7 +112,7 @@ const Sidebar = ({ minimize, setMinimize }) => {
       width: r.width,
       height: r.height,
       radius,
-      color
+      color,
     });
   };
 
@@ -122,7 +122,8 @@ const Sidebar = ({ minimize, setMinimize }) => {
     setTip({ name, top: r.top + r.height / 2, left: r.right + 8 });
   };
 
-  const showButton = (id) => measure(btnRefs.current[id], 12, "var(--side-hover)");
+  const showButton = (id) =>
+    measure(btnRefs.current[id], 12, "var(--side-hover)");
   const showIcon = (id) => measure(iconRefs.current[id], 6, "var(--accent)");
 
   useLayoutEffect(() => {
@@ -140,8 +141,12 @@ const Sidebar = ({ minimize, setMinimize }) => {
     <div
       className={`${minimize ? "lg:w-4/40 xl:w-3/40 2xl:w-2/40" : ""} w-2/11 h-screen p-3 z-10 transition-all ease-in-out duration-500`}
     >
-      <div className={`${minimize ? "justify-center" : ""} flex w-full justify-between items-center transition-all`}>
-        <h2 className={`${minimize ? "w-0 overflow-x-hidden" : "w-100"}  opacity-100 z-1 text-side-ink-muted font-medium transition-all text-2xl! md:text-lg 2xl:text-[28px]`}>
+      <div
+        className={`${minimize ? "justify-center" : ""} flex w-full justify-between items-center transition-all`}
+      >
+        <h2
+          className={`${minimize ? "w-0 overflow-x-hidden" : "w-100"}  opacity-100 z-1 text-side-ink-muted font-medium transition-all text-2xl! md:text-lg 2xl:text-[28px]`}
+        >
           Admin Dashboard
         </h2>
         <button
@@ -167,17 +172,12 @@ const Sidebar = ({ minimize, setMinimize }) => {
           <div className="absolute z-0 top-0 left-0 w-full h-full bg-linear-to-t from-deep/80 to-deep/30 opacity-0 group-hover:opacity-100 transition-all"></div>
           <div
             className={`z-1 flex justify-between w-full items-start ${minimize ? "flex-col" : ""}`}
-          >
-          </div>
-
+          ></div>
         </div>
       </div>
 
       <div className={`${!minimize ? "" : ""} flex flex-col gap-2`}>
-        <div
-          ref={wrapRef}
-          className="relative flex flex-col"
-        >
+        <div ref={wrapRef} className="relative flex flex-col">
           <div
             aria-hidden="true"
             style={{
@@ -186,8 +186,9 @@ const Sidebar = ({ minimize, setMinimize }) => {
               width: bg.width,
               height: bg.height,
               borderRadius: bg.radius,
+              backgroundColor: bg.color,
             }}
-            className="absolute z-0 bg-side-hover transition-all duration-300 ease-out overflow-hidden"
+            className="absolute z-0 transition-all duration-300 ease-out overflow-hidden"
           />
 
           <ul>
@@ -203,13 +204,19 @@ const Sidebar = ({ minimize, setMinimize }) => {
                       key={link.id}
                       to={link.path}
                       ref={(el) => (btnRefs.current[link.id] = el)}
-                      onMouseEnter={(e) => { showButton(link.id); showTip(e, link.name); }}
-                      onMouseLeave={() => { showIcon(active); setTip(null); }}
+                      onMouseEnter={(e) => {
+                        showButton(link.id);
+                        showTip(e, link.name);
+                      }}
+                      onMouseLeave={() => {
+                        showIcon(active);
+                        setTip(null);
+                      }}
                       className={`${minimize ? "w-min" : ""} relative z-10 flex group w-full gap-3 items-center p-1 text-side-ink`}
                     >
                       <span
                         ref={(el) => (iconRefs.current[link.id] = el)}
-                        className="p-3 rounded-md"
+                        className={`p-3 rounded-md ${active === link.id ? "text-on-brand" : ""}`}
                       >
                         {link.icon}
                       </span>

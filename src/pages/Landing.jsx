@@ -45,7 +45,7 @@ const galleryImages = [
 
 const Landing = () => {
   return (
-    <div className="min-h-screen bg-[#1a1d24]" id="top">
+    <div className="min-h-screen bg-bg" id="top">
       <Header />
 
       {/* Hero Slider */}
@@ -54,18 +54,18 @@ const Landing = () => {
       </div>
 
       {/* About Section */}
-      <section className="container py-16">
+      <section className="container py-16 mt-40!">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-white text-4xl font-bold uppercase leading-tight mb-6">
+            <h2 className="text-ink text-4xl font-bold uppercase leading-tight mb-6">
               XIVA MUZEYI – 1970 YILDAN TARIХ MEROSI
             </h2>
-            <p className="text-white/70 text-sm leading-relaxed mb-4">
-              1970 yilda tashkil etilgan Xiva muzeyi Xiva va uning atrofidagi boy
-              tarix va madaniy merosni saqlab va namoyish etishga bag'ishlangan
-              yetakchi madaniy va ta'lim muassasasidir.
+            <p className="text-ink/70 text-sm leading-relaxed mb-4">
+              1970 yilda tashkil etilgan Xiva muzeyi Xiva va uning atrofidagi
+              boy tarix va madaniy merosni saqlab va namoyish etishga
+              bag'ishlangan yetakchi madaniy va ta'lim muassasasidir.
             </p>
-            <p className="text-white/70 text-sm leading-relaxed mb-8">
+            <p className="text-ink/70 text-sm leading-relaxed mb-8">
               Ko'p tarmoqli markaz sifatida muzey tadqiqot, saqlash va jamoat
               ta'limida muhim rol o'ynaydi. U Xivaning o'tmishining badiiy,
               me'moriy va kundalik hayot an'analarini ifodalovchi keng ko'lamli
@@ -74,19 +74,27 @@ const Landing = () => {
             <div className="flex gap-4">
               <Link
                 to="/chipta"
-                className="px-6 py-3 bg-[#E8A422] hover:bg-[#d4921b] text-black font-semibold rounded text-sm transition-colors flex items-center gap-2"
+                className="px-6 py-3 bg-accent hover:bg-accent-hover text-black font-semibold rounded text-sm transition-colors flex items-center gap-2"
               >
                 Chipta olish
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" />
                 </svg>
               </Link>
               <Link
                 to="/biz-haqimizda"
-                className="px-6 py-3 border border-[#E8A422] text-[#E8A422] hover:bg-[#E8A422]/10 font-semibold rounded text-sm transition-colors flex items-center gap-2"
+                className="px-6 py-3 border-dashed border border-accent text-accent hover:bg-[#E8A422]/10 font-semibold rounded text-sm transition-colors flex items-center gap-2"
               >
                 Batafsil
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
                 </svg>
               </Link>
@@ -161,7 +169,11 @@ const Landing = () => {
                       className="flex items-center gap-2 text-[#E8A422] border border-[#E8A422] hover:bg-[#E8A422]/10 px-4 py-2 rounded text-sm font-medium transition-colors w-fit"
                     >
                       Batafsil
-                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                      <svg
+                        className="w-3.5 h-3.5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
                       </svg>
                     </Link>
@@ -180,7 +192,11 @@ const Landing = () => {
             className="flex items-center gap-2 text-[#E8A422] border border-[#E8A422] hover:bg-[#E8A422]/10 px-4 py-2 rounded text-sm font-medium transition-colors w-fit ml-auto"
           >
             Batafsil
-            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-3.5 h-3.5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
             </svg>
           </Link>
@@ -189,7 +205,9 @@ const Landing = () => {
 
       {/* Gallery Preview */}
       <section className="container py-8">
-        <h2 className="text-white text-4xl font-bold uppercase mb-8">GALEREYA</h2>
+        <h2 className="text-white text-4xl font-bold uppercase mb-8">
+          GALEREYA
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
             "/images/xiva-1.jpg",
@@ -217,7 +235,11 @@ const Landing = () => {
             className="flex items-center gap-2 text-[#E8A422] border border-[#E8A422] hover:bg-[#E8A422]/10 px-4 py-2 rounded text-sm font-medium transition-colors w-fit ml-auto"
           >
             Batafsil
-            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-3.5 h-3.5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
             </svg>
           </Link>
