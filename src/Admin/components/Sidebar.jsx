@@ -123,7 +123,7 @@ const Sidebar = ({ minimize, setMinimize }) => {
   };
 
   const showButton = (id) =>
-    measure(btnRefs.current[id], 12, "var(--side-hover)");
+    measure(btnRefs.current[id], 12, "var(--accent-hover)");
   const showIcon = (id) => measure(iconRefs.current[id], 6, "var(--accent)");
 
   useLayoutEffect(() => {
@@ -144,11 +144,13 @@ const Sidebar = ({ minimize, setMinimize }) => {
       <div
         className={`${minimize ? "justify-center" : ""} flex w-full justify-between items-center transition-all`}
       >
-        <h2
-          className={`${minimize ? "w-0 overflow-x-hidden" : "w-100"}  opacity-100 z-1 text-side-ink-muted font-medium transition-all text-2xl! md:text-lg 2xl:text-[28px]`}
+        <div
+          className={`${minimize ? "w-0 overflow-x-hidden transition-all duration-300 ease" : "w-100"}  opacity-100 z-1 text-side-ink-muted font-medium transition-all ease duration-300`}
         >
+          <h2 className="w-52 text-xl! md:text-xl 2xl:text-xl relative  ">
           Admin Dashboard
-        </h2>
+          </h2>
+        </div>
         <button
           onClick={handleMinimize}
           className="relative cursor-pointer p-2 rounded-xl hover:bg-side-hover text-side-ink-muted transition-all"
@@ -164,7 +166,7 @@ const Sidebar = ({ minimize, setMinimize }) => {
         </button>
       </div>
       <div
-        className={`${minimize ? "rounded-2xl" : "rounded-2xl"} mt-2 flex items-center bg-side-card h-50 bg-[url(/istockphoto-1213935830-612x612.jpg)] bg-top gap-5`}
+        className={`${minimize ? "rounded-2xl" : "rounded-2xl"} mt-2 flex items-center bg-side-card h-40 bg-[url(/istockphoto-1213935830-612x612.jpg)] bg-position-[50%_15%] gap-5`}
       >
         <div
           className={`${minimize ? "rounded-b-md" : "rounded-xl"} relative flex flex-col justify-between items-start overflow-hidden group hover:pt-3 hover:pl-3 hover:pr-3 pr-2 pt-2 pl-2 pb-2 w-full h-full transition-all`}
