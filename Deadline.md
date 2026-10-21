@@ -4,3 +4,5 @@
 ##### Check in Day 4 ✔️
 ##### Check in Day 5 ✔️
 ##### Check in Day 6 ✔️
+
+## Project paused for short time
