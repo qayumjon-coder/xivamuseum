@@ -28,10 +28,26 @@ const collectionItems = [
 ];
 
 const stats = [
-  { icon: <img src="/stats/stat-1.png"/>, label: "1000+ yillik yodgorliklar", value: "2941" },
-  { icon: <img src="/stats/stat-2.png"/>, label: "Xiva eksklyuziv yodgorliklari", value: "460" },
-  { icon: <img src="/stats/stat-3.png"/>, label: "Ipak yo'li yodgorliklari", value: "11031" },
-  { icon: <img src="/stats/stat-4.png"/>, label: "Tadqiqot loyihalari", value: "78" },
+  {
+    icon: <img src="/stats/stat-1.png" />,
+    label: "1000+ yillik yodgorliklar",
+    value: "2941",
+  },
+  {
+    icon: <img src="/stats/stat-2.png" />,
+    label: "Xiva eksklyuziv yodgorliklari",
+    value: "460",
+  },
+  {
+    icon: <img src="/stats/stat-3.png" />,
+    label: "Ipak yo'li yodgorliklari",
+    value: "11031",
+  },
+  {
+    icon: <img src="/stats/stat-4.png" />,
+    label: "Tadqiqot loyihalari",
+    value: "78",
+  },
 ];
 
 const galleryImages = [
